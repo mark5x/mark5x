@@ -4,8 +4,7 @@ import json
 with open("ip-out.txt", "w") as external_file:
     with open("ip.txt", "r") as f:
         for line in f:
-       # ip = line
-        #print(line)
+
             line = line.replace("\n","")
             files = {
                 'ip': (None, (line)),
@@ -17,7 +16,6 @@ with open("ip-out.txt", "w") as external_file:
             print(vyvod)
         
             add_text = vyvod
-#            print(add_text, file=external_file)
             df = add_text['ip']
             ds = add_text['blacklists']
             dss = ds['spamhaus']
@@ -25,11 +23,7 @@ with open("ip-out.txt", "w") as external_file:
             dsc = ds['spamcop']
             dsk = ds['southkoreannbl']
             dsb = ds['barracuda']
-#            print(df)
             print(df + ' ' + dss + ' ' + dsr + ' ' + dsc + ' ' + dsk + ' ' + dsb, file=external_file)
-
-       # data = json.load(response)
-       # print(data)
 
 f.close()
 external_file.close()
